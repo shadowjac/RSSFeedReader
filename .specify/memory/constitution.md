@@ -1,50 +1,39 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+- Version change: 0.0.0 → 1.0.0
+- Modified principles: None; this constitution is newly instantiated for the RSS Feed Reader project.
+- Added sections: Security and Quality Constraints; Development Workflow
+- Removed sections: None
+- Templates requiring updates: .specify/templates/plan-template.md ✅ updated, .specify/templates/spec-template.md ✅ updated, .specify/templates/tasks-template.md ✅ updated
+- Follow-up TODOs: None
+-->
+
+# RSS Feed Reader Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. MVP-First Scope Discipline
+This project MUST deliver the smallest working proof of concept first: adding a feed subscription and displaying the subscription list. Any feature outside the approved MVP scope, including persistence, feed parsing, removal, or background polling, MUST be deferred unless a spec explicitly reclassifies it as part of the current milestone. This keeps the app easy to build, test, and reason about.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Secure and Explicit Input Handling
+All user-supplied values, especially feed URLs and any future feed content, MUST be treated as untrusted input. The system MUST validate input before use, reject malformed or empty values, and avoid executing or rendering untrusted content without safe handling. Configuration values such as API endpoints and CORS origins MUST be explicit and version-controlled rather than hard-coded in multiple places.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Clear Separation of Concerns
+Frontend and backend responsibilities MUST remain distinct: the UI handles user interaction and presentation, while the API manages subscription state and integration points. Business rules MUST live in the backend or shared service layer, not scattered across Razor components or ad hoc UI code. This preserves maintainability as the app grows beyond the MVP.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Testable and Verifiable Delivery
+Every user-visible change MUST have a concrete verification step before it is considered complete. The minimum expectation is that the affected flow is exercised through a build, a targeted test, or a manual run that confirms the requested behavior. New features MUST not ship with unverified routing, configuration, or API contract issues.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Maintainable Simplicity
+Implementation MUST favor the simplest design that satisfies the current milestone. Avoid premature abstractions, unused dependencies, and duplicated logic. When adding complexity, the justification MUST be documented in the spec or plan so that future maintainers can understand why the more involved approach was necessary.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Security and Quality Constraints
+The application MUST protect against malformed URLs, empty submissions, and unsafe content handling. Any future feed parsing or HTML rendering MUST use safe parsing and encoding practices, and any external requests MUST be bounded by timeouts and clear failure handling. Sensitive configuration MUST NOT be committed to the repository; local-only settings and secrets MUST remain outside source control.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Development Workflow
+Work MUST proceed in MVP-first increments: define the feature in a spec, build a plan, implement the smallest slice, and verify it before expanding scope. Each feature change MUST include explicit acceptance criteria, and tasks MUST preserve the repository’s separation of concerns and quality gates. Reviews MUST check that the change remains aligned with the MVP, that relevant tests or manual verification are present, and that no new security or configuration issues were introduced.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+This constitution supersedes informal project practices for this repository. Any amendment MUST update this document, adjust the version number, and include a clear rationale for the change. Changes that affect security, architecture, or MVP scope MUST be reviewed before implementation and documented in the spec or plan. Compliance reviews MUST confirm that planned work, implementation, and verification steps align with these principles.
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
-
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-07-24 | **Last Amended**: 2026-07-24

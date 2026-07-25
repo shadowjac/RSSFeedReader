@@ -40,7 +40,11 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- The proposed feature MUST stay within the approved MVP scope unless the spec explicitly reclassifies it.
+- Any input handling or external content flow MUST document validation, safe handling, and failure behavior.
+- UI and API responsibilities MUST remain separated; frontend changes MUST NOT embed backend business logic.
+- The plan MUST identify a concrete verification step through build, test, or manual validation before the feature is considered complete.
+- Any change that affects routing, configuration, or local service integration MUST include the relevant validation steps in the plan.
 
 ## Project Structure
 

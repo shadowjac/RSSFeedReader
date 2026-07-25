@@ -19,6 +19,12 @@ description: "Task list template for feature implementation"
 - **[Story]**: Which user story this task belongs to (e.g., US1, US2, US3)
 - Include exact file paths in descriptions
 
+## Constitution-Aligned Guidance
+
+- Keep tasks aligned with the MVP-first scope and defer non-MVP work explicitly.
+- For any task touching URLs, feed content, configuration, or routing, include validation and safe-handling steps.
+- Favor small, testable tasks and include a verification task or acceptance check before marking a story complete.
+
 ## Path Conventions
 
 - **Single project**: `src/`, `tests/` at repository root
@@ -63,12 +69,12 @@ description: "Task list template for feature implementation"
 
 Examples of foundational tasks (adjust based on your project):
 
-- [ ] T004 Setup database schema and migrations framework
-- [ ] T005 [P] Implement authentication/authorization framework
-- [ ] T006 [P] Setup API routing and middleware structure
+- [ ] T004 Verify the Blazor route cleanup and root page configuration
+- [ ] T005 [P] Align backend/frontend ports and configure CORS for local development
+- [ ] T006 [P] Set up API routing and middleware structure for subscription operations
 - [ ] T007 Create base models/entities that all stories depend on
-- [ ] T008 Configure error handling and logging infrastructure
-- [ ] T009 Setup environment configuration management
+- [ ] T008 Configure input validation, error handling, and logging infrastructure
+- [ ] T009 Setup environment configuration management for API base URLs and local settings
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 

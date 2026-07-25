@@ -75,10 +75,13 @@
   Fill them out with the right edge cases.
 -->
 
-- What happens when [boundary condition]?
-- How does system handle [error scenario]?
+- What happens when a supplied URL is empty, malformed, or not a valid feed address?
+- How does the system handle a failed feed fetch, timeout, or unexpected response?
+- What happens when routing or configuration changes create conflicting UI routes or mismatched API endpoints?
 
 ## Requirements *(mandatory)*
+
+For this repository, each feature spec MUST explicitly describe its scope boundary, any input-validation or security handling, and a concrete verification step. Features that expand beyond the MVP must state why the change is necessary and what work is deferred.
 
 <!--
   ACTION REQUIRED: The content in this section represents placeholders.
