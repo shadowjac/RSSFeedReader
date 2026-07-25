@@ -1,0 +1,73 @@
+﻿@page "/"
+@using RSSFeedReader.Frontend.Services
+@inject SubscriptionService SubscriptionService
+
+<PageTitle>RSS Feed Reader</PageTitle>
+
+<h1>RSS Feed Reader</h1>
+<p>Add a feed URL to start tracking subscriptions for this session.</p>
+
+<EditForm Model="_model" OnValidSubmit="HandleSubmit" class="mb-4">
+    <div class="mb-3">
+        <label class="form-label" for="feedUrl">Feed URL</label>
+        <InputText id="feedUrl" class="form-control" @bind-Value="_model.Url" />
+    </div>
+    <button type="submit" class="btn btn-primary">Add subscription</button>
+</EditForm>
+
+@if (!string.IsNullOrWhiteSpace(_message))
+{
+    <div class="alert alert-info">@_message</div>
+}
+
+@if (_subscriptions.Count == 0)
+{
+    <p>No subscriptions yet.</p>
+}
+else
+{
+    <ul class="list-group">
+        @foreach (var subscription in _subscriptions)
+        {
+            <li class="list-group-item">@subscription.Url</li>
+        }
+    </ul>
+}
+
+@code {
+    private readonly SubscriptionFormModel _model = new();
+    private readonly List<SubscriptionDto> _subscriptions = [];
+    private string _message = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ReloadSubscriptionsAsync();
+    }
+
+    private async Task HandleSubmit()
+    {
+        try
+        {
+            await SubscriptionService.AddSubscriptionAsync(_model.Url);
+            _model.Url = string.Empty;
+            _message = "Subscription added.";
+            await ReloadSubscriptionsAsync();
+        }
+        catch (Exception ex)
+        {
+            _message = ex.Message;
+        }
+    }
+
+    private async Task ReloadSubscriptionsAsync()
+    {
+        _subscriptions.Clear();
+        var subscriptions = await SubscriptionService.GetSubscriptionsAsync();
+        _subscriptions.AddRange(subscriptions);
+    }
+
+    private class SubscriptionFormModel
+    {
+        public string Url { get; set; } = string.Empty;
+    }
+}

@@ -1,0 +1,6 @@
+@RSSFeedReader.Backend_HostAddress = http://localhost:5192
+
+GET {{RSSFeedReader.Backend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

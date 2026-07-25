@@ -16,10 +16,10 @@
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create the backend project structure under backend/src/ and backend/tests/
-- [ ] T002 Create the frontend project structure under frontend/src/ and frontend/tests/
-- [ ] T003 [P] Configure local API and frontend ports and enable CORS in backend/src/Program.cs
-- [ ] T004 [P] Verify routing and remove default template demo pages from frontend/src/Pages/ and frontend/src/Shared/
+- [x] T001 Create the backend project structure under backend/src/ and backend/tests/
+- [x] T002 Create the frontend project structure under frontend/src/ and frontend/tests/
+- [x] T003 [P] Configure local API and frontend ports and enable CORS in backend/src/Program.cs
+- [x] T004 [P] Verify routing and remove default template demo pages from frontend/src/Pages/ and frontend/src/Shared/
 
 **Checkpoint**: The app shell is ready for the MVP backend and frontend work.
 
@@ -29,12 +29,12 @@
 
 **Purpose**: Core infrastructure that must be complete before user story work can begin
 
-- [ ] T005 Create the Subscription model in backend/src/Models/Subscription.cs
-- [ ] T006 Create in-memory subscription storage in backend/src/Services/SubscriptionService.cs
-- [ ] T007 Implement backend create/list subscription operations in backend/src/Controllers/SubscriptionsController.cs
-- [ ] T008 Add URL validation and clear error handling in backend/src/Services/SubscriptionService.cs
-- [ ] T009 Create the frontend API client in frontend/src/Services/SubscriptionService.cs
-- [ ] T010 Configure frontend API base URL wiring in frontend/src/Program.cs
+- [x] T005 Create the Subscription model in backend/src/Models/Subscription.cs
+- [x] T006 Create in-memory subscription storage in backend/src/Services/SubscriptionService.cs
+- [x] T007 Implement backend create/list subscription operations in backend/src/Controllers/SubscriptionsController.cs
+- [x] T008 Add URL validation and clear error handling in backend/src/Services/SubscriptionService.cs
+- [x] T009 Create the frontend API client in frontend/src/Services/SubscriptionService.cs
+- [x] T010 Configure frontend API base URL wiring in frontend/src/Program.cs
 
 **Checkpoint**: The backend and frontend can now support subscription management end to end.
 
@@ -48,9 +48,9 @@
 
 ### Implementation for User Story 1
 
-- [ ] T011 [P] [US1] Implement the add-subscription form UI in frontend/src/Pages/Subscriptions.razor
-- [ ] T012 [US1] Wire form submission to the backend create endpoint in frontend/src/Pages/Subscriptions.razor
-- [ ] T013 [US1] Show validation and success feedback for empty or malformed input in frontend/src/Pages/Subscriptions.razor
+- [x] T011 [P] [US1] Implement the add-subscription form UI in frontend/src/Pages/Subscriptions.razor
+- [x] T012 [US1] Wire form submission to the backend create endpoint in frontend/src/Pages/Subscriptions.razor
+- [x] T013 [US1] Show validation and success feedback for empty or malformed input in frontend/src/Pages/Subscriptions.razor
 
 **Checkpoint**: User Story 1 is fully functional and independently testable.
 
@@ -64,9 +64,9 @@
 
 ### Implementation for User Story 2
 
-- [ ] T014 [P] [US2] Load existing subscriptions from the backend on page load in frontend/src/Pages/Subscriptions.razor
-- [ ] T015 [US2] Render the current subscriptions list in frontend/src/Pages/Subscriptions.razor
-- [ ] T016 [US2] Refresh the visible list immediately after a new subscription is added in frontend/src/Pages/Subscriptions.razor
+- [x] T014 [P] [US2] Load existing subscriptions from the backend on page load in frontend/src/Pages/Subscriptions.razor
+- [x] T015 [US2] Render the current subscriptions list in frontend/src/Pages/Subscriptions.razor
+- [x] T016 [US2] Refresh the visible list immediately after a new subscription is added in frontend/src/Pages/Subscriptions.razor
 
 **Checkpoint**: User Story 2 is fully functional and independently testable.
 
@@ -76,9 +76,9 @@
 
 **Purpose**: Improvements that affect the whole MVP experience
 
-- [ ] T017 Review the implementation to ensure it stays within MVP scope and does not introduce feed-fetching behavior
-- [ ] T018 Manually validate that a valid URL is added and appears in the list end to end
-- [ ] T019 Manually validate that malformed input is rejected with a clear message
+- [x] T017 Review the implementation to ensure it stays within MVP scope and does not introduce feed-fetching behavior
+- [x] T018 Manually validate that a valid URL is added and appears in the list end to end
+- [x] T019 Manually validate that malformed input is rejected with a clear message
 
 ---
 
